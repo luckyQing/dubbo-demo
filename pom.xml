@@ -18,6 +18,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<!-- 2.1.5.RELEASE 升级后，IDE插件不兼容 -->
+		<springboot>2.1.5.RELEASE</springboot>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 		<dubbo>2.7.3</dubbo>
 		<fastjson>1.2.58</fastjson>
@@ -40,20 +41,17 @@
 
 			<!-- 第三方jar start -->
 			<dependency>
-				<groupId>org.apache.dubbo</groupId>
-				<artifactId>dubbo-spring-boot-starter</artifactId>
-				<version>${dubbo}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>fastjson</artifactId>
-				<version>${fastjson}</version>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${springboot}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-web</artifactId>
-				<version>${spring.boot}</version>
+				<version>${springboot}</version>
 				<exclusions>
 					<exclusion>
 						<groupId>org.springframework.boot</groupId>
@@ -64,6 +62,17 @@
 						<artifactId>spring-boot-starter-tomcat</artifactId>
 					</exclusion>
 				</exclusions>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo-spring-boot-starter</artifactId>
+				<version>${dubbo}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson}</version>
 			</dependency>
 			<!-- 第三方jar end -->
 		</dependencies>
