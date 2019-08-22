@@ -1,4 +1,4 @@
-package com.liyulin.dubbo.demo.product.provider.service;
+package com.liyulin.dubbo.demo.product.service;
 
 import org.apache.dubbo.config.annotation.Service;
 

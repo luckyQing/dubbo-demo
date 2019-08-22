@@ -1,3 +1,27 @@
 spring:
   application:
     name: order-service
+server:
+  port: 10001
+    
+dubbo:
+  registry:
+    id: order-service
+    address: zookeeper://127.0.0.1:2181
+    group: local
+  application:
+    name: order-service
+    id: order-service
+    qosEnable: true
+    qosPort: 20001
+    qosAcceptForeignIp: false
+  protocol:
+    # -1表示使用随机未被占用的端口
+    port: -1
+    name: dubbo
+  scan:
+    # dubbo 服务提供者实现类所在包
+    base-packages: com.liyulin.dubbo.demo.order.service
+  consumer:
+    # 是否检查服务提供者有效 
+    check: false

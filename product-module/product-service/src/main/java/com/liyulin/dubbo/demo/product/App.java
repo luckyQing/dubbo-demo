@@ -1,4 +1,4 @@
-package com.liyulin.dubbo.demo.product.provider;
+package com.liyulin.dubbo.demo.product;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
