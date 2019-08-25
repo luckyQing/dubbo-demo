@@ -11,6 +11,13 @@
 > 		<th>端口</th>
 > 	</tr>
 > 	<tr>
+> 		<td>common-wrapper</td>
+> 		<td>业务无关功能封装</td>
+> 		<td>-</td>
+> 		<td>-</td>
+> 		<td>-</td>
+> 	</tr>
+> 	<tr>
 > 		<td rowspan=2>order-module</td>
 > 		<td rowspan=2>订单模块</td>
 > 		<td>order-service</td>

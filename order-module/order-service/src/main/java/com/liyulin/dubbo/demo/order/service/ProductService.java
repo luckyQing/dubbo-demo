@@ -9,7 +9,7 @@ import com.liyulin.dubbo.demo.rpc.product.response.QryProductByIdRespBody;
 @Service
 public class ProductService {
 
-	@Reference
+	@Reference(validation = "true")
 	private ProductRpc productRpc;
 
 	public QryProductByIdRespBody qryById(Long id) {

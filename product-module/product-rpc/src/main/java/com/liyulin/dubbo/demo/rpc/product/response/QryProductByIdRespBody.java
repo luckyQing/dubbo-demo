@@ -9,7 +9,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @NoArgsConstructor
 @SuperBuilder
-public class QryProductByIdRespBody implements Serializable{
+public class QryProductByIdRespBody implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String name;
