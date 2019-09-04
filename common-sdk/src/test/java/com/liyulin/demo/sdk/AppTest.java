@@ -1,4 +1,4 @@
-package com.liyulin.dubbo.demo.mall.product;
+package com.liyulin.demo.sdk;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
