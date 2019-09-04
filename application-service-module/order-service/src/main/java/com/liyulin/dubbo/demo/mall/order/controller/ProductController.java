@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.liyulin.dubbo.demo.mall.order.service.ProductService;
@@ -22,13 +23,13 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
-	@GetMapping
+	@GetMapping("qryById")
 	public QryProductByIdRespBody qryById(@NotNull Long id) {
 		return productService.qryById(id);
 	}
 
-	@PostMapping
-	public List<QryProductByIdRespBody> search(@NotNull @Valid ProductSearchReqBody req) {
+	@PostMapping("search")
+	public List<QryProductByIdRespBody> search(@RequestBody @NotNull @Valid ProductSearchReqBody req) {
 		return productService.search(req);
 	}
 

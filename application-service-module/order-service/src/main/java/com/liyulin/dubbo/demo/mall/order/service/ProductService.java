@@ -2,8 +2,6 @@ package com.liyulin.dubbo.demo.mall.order.service;
 
 import java.util.List;
 
-import javax.validation.constraints.NotNull;
-
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +19,7 @@ public class ProductService {
 		return productRpc.qryById(id);
 	}
 
-	public List<QryProductByIdRespBody> search(@NotNull ProductSearchReqBody req) {
+	public List<QryProductByIdRespBody> search(ProductSearchReqBody req) {
 		return productRpc.search(req);
 	}
 
