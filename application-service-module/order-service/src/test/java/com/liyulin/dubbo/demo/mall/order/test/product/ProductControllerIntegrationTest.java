@@ -39,7 +39,7 @@ public class ProductControllerIntegrationTest extends AbstractIntegrationTest {
 		
 		LinkedMultiValueMap<String, String> params = new LinkedMultiValueMap<>();
 		params.add("id", "1");
-		QryProductByIdRespBody product = super.get("qryById", params,
+		QryProductByIdRespBody product = super.get("/order/product/qryById", params,
 				new TypeReference<QryProductByIdRespBody>() {
 				});
 		Assertions.assertThat(product).isNotNull();
@@ -52,7 +52,7 @@ public class ProductControllerIntegrationTest extends AbstractIntegrationTest {
 		Mockito.when(productRpc.search(Mockito.any())).thenReturn(mockProducts);
 		
 		ProductSearchReqBody productSearchReqBody = ProductSearchReqBody.builder().name("phone").price(3L).build();
-		List<QryProductByIdRespBody> products = super.post("search", productSearchReqBody,
+		List<QryProductByIdRespBody> products = super.post("/order/product/search", productSearchReqBody,
 				new TypeReference<List<QryProductByIdRespBody>>() {
 				});
 		Assertions.assertThat(products).isNotEmpty();

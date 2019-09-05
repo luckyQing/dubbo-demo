@@ -4,12 +4,12 @@ public class LocalBaseUrl extends AbstractEnvBaseUrl {
 
 	@Override
 	public String getMallOrder() {
-		return "http:127.0.0.1:10001";
+		return "http://127.0.0.1:10001/order/";
 	}
 
 	@Override
 	public String getMallProduct() {
-		return "http:127.0.0.1:10002";
+		return "http://127.0.0.1:10002/product/";
 	}
 
 }

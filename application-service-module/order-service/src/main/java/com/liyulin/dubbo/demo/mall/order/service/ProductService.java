@@ -12,7 +12,7 @@ import com.liyulin.dubbo.demo.mall.rpc.product.response.QryProductByIdRespBody;
 @Service
 public class ProductService {
 
-	@Reference(validation = "true", async = true)
+	@Reference(validation = "true")
 	private ProductRpc productRpc;
 
 	public QryProductByIdRespBody qryById(Long id) {

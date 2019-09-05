@@ -16,7 +16,7 @@ public class ProductControllerSystemTest extends AbstractSystemTest {
 	
 	@Test 
 	public void testQryById() throws Exception { 
-		String url = SystemTestConfig.ENV_BASE_URL.getMallOrder()+"/qryById?id=1";
+		String url = SystemTestConfig.ENV_BASE_URL.getMallOrder()+"product/qryById?id=1";
 		QryProductByIdRespBody product = HttpUtil.get(url, new TypeReference<QryProductByIdRespBody>() {
 		});
 		Assertions.assertThat(product).isNotNull();
@@ -24,7 +24,7 @@ public class ProductControllerSystemTest extends AbstractSystemTest {
 
 	@Test
 	public void testSearch() throws Exception {
-		String url = SystemTestConfig.ENV_BASE_URL.getMallOrder()+"/search";
+		String url = SystemTestConfig.ENV_BASE_URL.getMallOrder()+"product/search";
 		ProductSearchReqBody productSearchReqBody = ProductSearchReqBody.builder().name("phone").price(3L).build();
 		List<QryProductByIdRespBody> products = HttpUtil.postWithRaw(url, productSearchReqBody, new TypeReference<List<QryProductByIdRespBody>>() {
 		});
