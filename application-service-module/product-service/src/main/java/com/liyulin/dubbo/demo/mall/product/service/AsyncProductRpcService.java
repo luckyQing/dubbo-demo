@@ -3,6 +3,7 @@ package com.liyulin.dubbo.demo.mall.product.service;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -36,6 +37,28 @@ public class AsyncProductRpcService implements AsyncProductRpc, Serializable {
 					.build());
 		}
 		return products;
+	}
+
+	@Override
+	public CompletableFuture<QryProductByIdRespBody> asyncQryById(@NotNull Long id) {
+		return CompletableFuture.supplyAsync(()->{
+			return QryProductByIdRespBody.builder().id(id).name("test" + id).price(123L).build();
+		});
+	}
+
+	@Override
+	public CompletableFuture<List<QryProductByIdRespBody>> asyncSearch(@NotNull @Valid ProductSearchReqBody req) {
+		return CompletableFuture.supplyAsync(()->{
+			List<QryProductByIdRespBody> products = new ArrayList<>();
+			for (long id = 1; id < 5; id++) {
+				products.add(QryProductByIdRespBody.builder()
+						.id(id)
+						.name(req.getName() + id)
+						.price(req.getPrice())
+						.build());
+			}
+			return products;
+		});
 	}
 
 }

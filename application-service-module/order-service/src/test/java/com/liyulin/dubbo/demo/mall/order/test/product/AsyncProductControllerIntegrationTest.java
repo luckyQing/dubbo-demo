@@ -28,7 +28,7 @@ public class AsyncProductControllerIntegrationTest extends AbstractIntegrationTe
 	private AsyncProductService asyncProductService;
 	
 	@Test
-	public void testAsync() throws Exception {
+	public void testAsyncByRpcContext() throws Exception {
 		// stubbing qryById
 		Mockito.when(asyncProductRpc.qryById(Mockito.anyLong())).thenReturn(new QryProductByIdRespBody());
 
@@ -39,7 +39,7 @@ public class AsyncProductControllerIntegrationTest extends AbstractIntegrationTe
 		
 		ProductSearchReqBody searchReqBody = ProductSearchReqBody.builder().name("phone").price(3L).build();
 		AsyncResultReqBody asyncResultReqBody = AsyncResultReqBody.builder().id(1L).search(searchReqBody).build();
-		AsyncResultRespBody asyncResultRespBody = super.post("/order/asyncProduct/async", asyncResultReqBody,
+		AsyncResultRespBody asyncResultRespBody = super.post("/order/asyncProduct/asyncByRpcContext", asyncResultReqBody,
 				new TypeReference<AsyncResultRespBody>() {
 				});
 		Assertions.assertThat(asyncResultRespBody).isNotNull();

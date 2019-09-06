@@ -23,9 +23,16 @@ public class AsyncProductController {
 	@Autowired
 	private AsyncProductService asyncProductService;
 
-	@PostMapping("async")
-	public AsyncResultRespBody async(@RequestBody @NotNull AsyncResultReqBody req) throws InterruptedException, ExecutionException {
-		return asyncProductService.async(req);
+	@PostMapping("asyncByRpcContext")
+	public AsyncResultRespBody asyncByRpcContext(@RequestBody @NotNull AsyncResultReqBody req)
+			throws InterruptedException, ExecutionException {
+		return asyncProductService.asyncByRpcContext(req);
+	}
+
+	@PostMapping("asyncByCompletableFuture")
+	public AsyncResultRespBody asyncByCompletableFuture(@RequestBody @NotNull AsyncResultReqBody req)
+			throws InterruptedException, ExecutionException {
+		return asyncProductService.asyncByCompletableFuture(req);
 	}
 
 }

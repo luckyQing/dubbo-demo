@@ -1,6 +1,7 @@
 package com.liyulin.dubbo.demo.mall.order.service;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -22,17 +23,45 @@ import com.liyulin.dubbo.demo.mall.rpc.product.response.QryProductByIdRespBody;
 @Service
 public class AsyncProductService {
 
-	@Reference(validation = "true" , async = true )
+	@Reference(validation = "true", async = true)
 	private AsyncProductRpc asyncProductRpc;
 
-	public AsyncResultRespBody async(AsyncResultReqBody req) throws InterruptedException, ExecutionException {
+	/**
+	 * 通过{@link RpcContext}的方式异步调用
+	 * 
+	 * @param req
+	 * @return
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
+	public AsyncResultRespBody asyncByRpcContext(AsyncResultReqBody req)
+			throws InterruptedException, ExecutionException {
 		asyncProductRpc.qryById(req.getId());
 		Future<QryProductByIdRespBody> productFuture = RpcContext.getContext().getFuture();
-		
+
 		asyncProductRpc.search(req.getSearch());
 		Future<List<QryProductByIdRespBody>> productsFuture = RpcContext.getContext().getFuture();
 
 		return AsyncResultRespBody.builder().product(productFuture.get()).products(productsFuture.get()).build();
+	}
+
+	/**
+	 * 通过{@link CompletableFuture}的方式异步调用
+	 * 
+	 * @param req
+	 * @return
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
+	public AsyncResultRespBody asyncByCompletableFuture(AsyncResultReqBody req)
+			throws InterruptedException, ExecutionException {
+		CompletableFuture<QryProductByIdRespBody> productCompletableFuture = asyncProductRpc.asyncQryById(req.getId());
+		
+		CompletableFuture<List<QryProductByIdRespBody>> productsCompletableFuture = asyncProductRpc
+				.asyncSearch(req.getSearch());
+
+		return AsyncResultRespBody.builder().product(productCompletableFuture.get())
+				.products(productsCompletableFuture.get()).build();
 	}
 
 }
