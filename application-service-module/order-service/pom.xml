@@ -16,7 +16,7 @@
 			<groupId>com.liyulin</groupId>
 			<artifactId>mall-rpc</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.liyulin</groupId>
 			<artifactId>common-sdk</artifactId>

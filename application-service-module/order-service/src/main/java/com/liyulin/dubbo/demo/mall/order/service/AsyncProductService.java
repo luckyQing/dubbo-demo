@@ -21,7 +21,7 @@ import com.liyulin.dubbo.demo.mall.rpc.product.response.QryProductByIdRespBody;
  * @date 2019-09-05
  */
 @Service
-public class AsyncProductService {
+public class AsyncProductService extends AbstractService {
 
 	@Reference(validation = "true", async = true)
 	private AsyncProductRpc asyncProductRpc;
@@ -37,12 +37,18 @@ public class AsyncProductService {
 	public AsyncResultRespBody asyncByRpcContext(AsyncResultReqBody req)
 			throws InterruptedException, ExecutionException {
 		asyncProductRpc.qryById(req.getId());
-		Future<QryProductByIdRespBody> productFuture = RpcContext.getContext().getFuture();
+		Future<QryProductByIdRespBody> productFuture = super.getDubboRpcFuture();
 
 		asyncProductRpc.search(req.getSearch());
-		Future<List<QryProductByIdRespBody>> productsFuture = RpcContext.getContext().getFuture();
+		Future<List<QryProductByIdRespBody>> productsFuture = super.getDubboRpcFuture();
 
-		return AsyncResultRespBody.builder().product(productFuture.get()).products(productsFuture.get()).build();
+		QryProductByIdRespBody qryProductByIdRespBody = productFuture.get();
+		List<QryProductByIdRespBody> xx=productsFuture.get();
+		
+		return AsyncResultRespBody.builder()
+				.product(qryProductByIdRespBody)
+				.products(xx)
+				.build();
 	}
 
 	/**

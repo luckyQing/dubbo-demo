@@ -5,16 +5,12 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.TypeReference;
 import com.liyulin.demo.sdk.test.AbstractIntegrationTest;
+import com.liyulin.dubbo.demo.mall.order.controller.AsyncProductController;
 import com.liyulin.dubbo.demo.mall.order.service.AsyncProductService;
 import com.liyulin.dubbo.demo.mall.rpc.order.request.AsyncResultReqBody;
 import com.liyulin.dubbo.demo.mall.rpc.order.response.AsyncResultRespBody;
@@ -24,27 +20,28 @@ import com.liyulin.dubbo.demo.mall.rpc.product.response.QryProductByIdRespBody;
 
 public class AsyncProductControllerIntegrationTest extends AbstractIntegrationTest {
 
-	@Mock
-	private AsyncProductRpc asyncProductRpc;
-	@Autowired
-	@InjectMocks
-	private AsyncProductService asyncProductService;
-	
-	@Before
-    public void setup() {
-        MockitoAnnotations.initMocks(this);
-    }
-	
-	// FIXME:
 	@Test
 	public void testAsyncByRpcContext() throws Exception {
+		// FIXME:
+		AsyncProductService asyncProductService = applicationContext.getBean(AsyncProductService.class);
+		AsyncProductService asyncProductServiceSpy = Mockito.spy(asyncProductService);
+		
+		AsyncProductRpc asyncProductRpc = Mockito.mock(AsyncProductRpc.class);
+		setMockAttribute(asyncProductServiceSpy, asyncProductRpc);
+		
+		AsyncProductController asyncProductController = applicationContext.getBean(AsyncProductController.class);
+		setMockAttribute(asyncProductController, asyncProductServiceSpy);
+		
 		// stubbing qryById
 		Mockito.when(asyncProductRpc.qryById(Mockito.anyLong())).thenReturn(new QryProductByIdRespBody());
-
+		Mockito.when(asyncProductServiceSpy.getDubboRpcFuture()).thenReturn(CompletableFuture.completedFuture(new QryProductByIdRespBody()));
+		
 		// stubbing search
 		List<QryProductByIdRespBody> mockProducts = new ArrayList<>();
 		mockProducts.add(QryProductByIdRespBody.builder().name("test").price(3L).build());
+		
 		Mockito.when(asyncProductRpc.search(Mockito.any())).thenReturn(mockProducts);
+		Mockito.when(asyncProductServiceSpy.getDubboRpcFuture()).thenReturn(CompletableFuture.completedFuture(mockProducts));
 		
 		ProductSearchReqBody searchReqBody = ProductSearchReqBody.builder().name("phone").price(3L).build();
 		AsyncResultReqBody asyncResultReqBody = AsyncResultReqBody.builder().id(1L).search(searchReqBody).build();
@@ -58,6 +55,10 @@ public class AsyncProductControllerIntegrationTest extends AbstractIntegrationTe
 	
 	@Test
 	public void testAsyncByCompletableFuture() throws Exception {
+		AsyncProductRpc asyncProductRpc = Mockito.mock(AsyncProductRpc.class);
+		AsyncProductService asyncProductService = applicationContext.getBean(AsyncProductService.class);
+		setMockAttribute(asyncProductService, asyncProductRpc);
+		
 		// stubbing asyncQryById
 		Mockito.when(asyncProductRpc.asyncQryById(Mockito.anyLong())).thenReturn(CompletableFuture.completedFuture(new QryProductByIdRespBody()));
 
