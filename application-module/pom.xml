@@ -8,7 +8,7 @@
 		<artifactId>dubbo-demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>application-service-module</artifactId>
+	<artifactId>application-module</artifactId>
 	<packaging>pom</packaging>
 	<modules>
 		<module>mall-rpc</module>

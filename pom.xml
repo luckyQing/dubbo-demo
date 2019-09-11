@@ -130,12 +130,8 @@
 	</dependencies>
 
 	<modules>
-		<module>order-module</module>
-		<module>product-module</module>
-		<module>system-test</module>
-		<module>order-rpc</module>
-		<module>common-wrapper</module>
-		<module>application-service-module</module>
+		<module>application-module</module>
 		<module>common-sdk</module>
+		<module>system-test</module>
 	</modules>
 </project>
