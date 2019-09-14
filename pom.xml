@@ -24,6 +24,7 @@
 		<fastjson>1.2.58</fastjson>
 		<reflections>0.9.11</reflections>
 		<httpclient>4.5.9</httpclient>
+		<powermock>2.0.2</powermock>
 	</properties>
 
 	<dependencyManagement>
@@ -104,6 +105,24 @@
 				<groupId>org.apache.httpcomponents</groupId>
 				<artifactId>httpclient</artifactId>
 				<version>${httpclient}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-module-junit4</artifactId>
+				<version>${powermock}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-api-mockito2</artifactId>
+				<version>${powermock}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-module-junit4-rule-agent</artifactId>
+				<version>${powermock}</version>
+				<scope>test</scope>
 			</dependency>
 			<!-- 第三方jar end -->
 		</dependencies>
