@@ -18,7 +18,7 @@
 > 		<td>-</td>
 > 	</tr>
 > 	<tr>
-> 		<td rowspan=3>application-service-module</td>
+> 		<td rowspan=3>application-module</td>
 > 		<td rowspan=3>应用服务模块</td>
 > 		<td>mall-rpc</td>
 > 		<td>rpc接口封装</td>
