@@ -6,10 +6,10 @@ import org.apache.dubbo.config.annotation.Reference;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import com.liyulin.demo.sdk.test.AbstractIntegrationTest;
 import com.liyulin.dubbo.demo.mall.rpc.product.ProductRpc;
 import com.liyulin.dubbo.demo.mall.rpc.product.request.ProductSearchReqBody;
 import com.liyulin.dubbo.demo.mall.rpc.product.response.QryProductByIdRespBody;
+import com.liyulin.dubbo.demo.sdk.test.AbstractIntegrationTest;
 
 public class ProductRpcServiceIntegrationTest extends AbstractIntegrationTest {
 

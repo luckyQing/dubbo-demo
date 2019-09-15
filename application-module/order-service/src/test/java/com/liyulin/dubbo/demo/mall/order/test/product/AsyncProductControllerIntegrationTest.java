@@ -20,13 +20,13 @@ import org.powermock.modules.junit4.rule.PowerMockRule;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.TypeReference;
-import com.liyulin.demo.sdk.test.AbstractIntegrationTest;
 import com.liyulin.dubbo.demo.mall.order.service.AsyncProductService;
 import com.liyulin.dubbo.demo.mall.rpc.order.request.AsyncResultReqBody;
 import com.liyulin.dubbo.demo.mall.rpc.order.response.AsyncResultRespBody;
 import com.liyulin.dubbo.demo.mall.rpc.product.AsyncProductRpc;
 import com.liyulin.dubbo.demo.mall.rpc.product.request.ProductSearchReqBody;
 import com.liyulin.dubbo.demo.mall.rpc.product.response.QryProductByIdRespBody;
+import com.liyulin.dubbo.demo.sdk.test.AbstractIntegrationTest;
 
 public class AsyncProductControllerIntegrationTest extends AbstractIntegrationTest {
 

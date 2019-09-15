@@ -1,4 +1,4 @@
-package com.liyulin.demo.sdk.test.util;
+package com.liyulin.dubbo.demo.sdk.test.util;
 
 import java.lang.reflect.Field;
 import java.util.concurrent.ConcurrentLinkedQueue;

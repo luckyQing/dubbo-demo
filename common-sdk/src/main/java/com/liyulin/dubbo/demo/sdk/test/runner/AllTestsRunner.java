@@ -1,4 +1,4 @@
-package com.liyulin.demo.sdk.test.runner;
+package com.liyulin.dubbo.demo.sdk.test.runner;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;

@@ -6,10 +6,10 @@ import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import com.alibaba.fastjson.TypeReference;
-import com.liyulin.demo.sdk.test.AbstractSystemTest;
-import com.liyulin.demo.sdk.util.HttpUtil;
 import com.liyulin.dubbo.demo.mall.rpc.product.request.ProductSearchReqBody;
 import com.liyulin.dubbo.demo.mall.rpc.product.response.QryProductByIdRespBody;
+import com.liyulin.dubbo.demo.sdk.test.AbstractSystemTest;
+import com.liyulin.dubbo.demo.sdk.util.HttpUtil;
 import com.liyulin.dubbo.demo.system.test.config.SystemTestConfig;
 
 public class ProductControllerSystemTest extends AbstractSystemTest {

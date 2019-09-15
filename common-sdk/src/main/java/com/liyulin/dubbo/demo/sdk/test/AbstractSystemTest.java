@@ -1,4 +1,4 @@
-package com.liyulin.demo.sdk.test;
+package com.liyulin.dubbo.demo.sdk.test;
 
 import junit.framework.TestCase;
 

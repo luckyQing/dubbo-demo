@@ -4,11 +4,11 @@ import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import com.alibaba.fastjson.TypeReference;
-import com.liyulin.demo.sdk.test.AbstractSystemTest;
-import com.liyulin.demo.sdk.util.HttpUtil;
 import com.liyulin.dubbo.demo.mall.rpc.order.request.AsyncResultReqBody;
 import com.liyulin.dubbo.demo.mall.rpc.order.response.AsyncResultRespBody;
 import com.liyulin.dubbo.demo.mall.rpc.product.request.ProductSearchReqBody;
+import com.liyulin.dubbo.demo.sdk.test.AbstractSystemTest;
+import com.liyulin.dubbo.demo.sdk.util.HttpUtil;
 import com.liyulin.dubbo.demo.system.test.config.SystemTestConfig;
 
 public class AsyncProductControllerSystemTest extends AbstractSystemTest {

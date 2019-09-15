@@ -1,4 +1,4 @@
-package com.liyulin.demo.sdk.util;
+package com.liyulin.dubbo.demo.sdk.util;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
