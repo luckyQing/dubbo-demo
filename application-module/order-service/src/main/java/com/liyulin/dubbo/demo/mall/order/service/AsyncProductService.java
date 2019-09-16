@@ -21,7 +21,7 @@ import com.liyulin.dubbo.demo.mall.rpc.product.response.QryProductByIdRespBody;
  * @date 2019-09-05
  */
 @Service
-public class AsyncProductService /* extends AbstractService */{
+public class AsyncProductService {
 
 	@Reference(validation = "true", async = true)
 	private AsyncProductRpc asyncProductRpc;

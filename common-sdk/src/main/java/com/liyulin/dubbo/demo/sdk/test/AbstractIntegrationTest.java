@@ -40,6 +40,8 @@ public abstract class AbstractIntegrationTest extends TestCase {
 	static {
 		// 单元测试环境下，关闭eureka
 		System.setProperty("eureka.client.enabled", "false");
+		// 单元测试环境下，关闭dubbo注册
+		System.setProperty("dubbo.enabled", "false");
 	}
 	
 	@Before
