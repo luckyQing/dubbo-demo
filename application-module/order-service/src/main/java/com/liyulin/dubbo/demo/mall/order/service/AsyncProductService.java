@@ -5,8 +5,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.rpc.RpcContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.liyulin.dubbo.demo.mall.rpc.order.request.AsyncResultReqBody;
@@ -23,7 +23,7 @@ import com.liyulin.dubbo.demo.mall.rpc.product.response.QryProductByIdRespBody;
 @Service
 public class AsyncProductService {
 
-	@Reference(validation = "true", async = true)
+	@Autowired
 	private AsyncProductRpc asyncProductRpc;
 
 	/**

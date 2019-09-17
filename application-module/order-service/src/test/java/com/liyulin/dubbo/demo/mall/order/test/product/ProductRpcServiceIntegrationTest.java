@@ -1,8 +1,7 @@
-package com.liyulin.dubbo.demo.mall.product.test.rpc;
+package com.liyulin.dubbo.demo.mall.order.test.product;
 
 import java.util.List;
 
-import org.apache.dubbo.config.annotation.Reference;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +13,7 @@ import com.liyulin.dubbo.demo.sdk.test.AbstractIntegrationTest;
 
 public class ProductRpcServiceIntegrationTest extends AbstractIntegrationTest {
 
-	@Reference(validation = "true")
-	@Autowired(required = false)
+	@Autowired
 	private ProductRpc productRpc;
 	
 	@Test

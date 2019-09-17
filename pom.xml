@@ -86,6 +86,11 @@
 				<version>${dubbo}</version>
 			</dependency>
 			<dependency>
+			    <groupId>org.apache.dubbo</groupId>
+			    <artifactId>dubbo</artifactId>
+			    <version>${dubbo}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.apache.dubbo</groupId>
 				<artifactId>dubbo-dependencies-zookeeper</artifactId>
 				<version>${dubbo}</version>
