@@ -11,7 +11,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
-import com.liyulin.dubbo.demo.sdk.web.aspect.dto.LogAspectDto;
+import com.liyulin.dubbo.demo.sdk.web.aspect.pojo.LogAspectDO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,29 +32,29 @@ public class DubboRpcAspect {
 	@Around("dobboRpcPointCut()")
 	public Object invoke(ProceedingJoinPoint joinPoint) throws Throwable {
 		// 请求前
-		LogAspectDto logDto = new LogAspectDto();
-		logDto.setReqStartTime(new Date());
+		LogAspectDO logDO = new LogAspectDO();
+		logDO.setReqStartTime(new Date());
 		
 		MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
 		Method method = methodSignature.getMethod();
-		logDto.setReqParams(joinPoint.getArgs());
+		logDO.setReqParams(joinPoint.getArgs());
 
 		String classMethod = method.getDeclaringClass().getTypeName() + "." + method.getName();
-		logDto.setClassMethod(classMethod);
+		logDO.setClassMethod(classMethod);
 
 		// 处理请求
 		Object result = joinPoint.proceed();
 		// 正常请求后
-		logDto.setReqEndTime(new Date());
-		logDto.setReqDealTime(getReqDealTime(logDto));
-		logDto.setRespData(result);
+		logDO.setReqEndTime(new Date());
+		logDO.setReqDealTime(getReqDealTime(logDO));
+		logDO.setRespData(result);
 
-		log.info("api.logDto.info=>{}", JSON.toJSONString(logDto));
+		log.info("rpc.logDO=>{}", JSON.toJSONString(logDO));
 		return result;
 	}
 
-	private final int getReqDealTime(LogAspectDto logDto) {
-		return (int) (logDto.getReqEndTime().getTime() - logDto.getReqStartTime().getTime());
+	private final int getReqDealTime(LogAspectDO logDO) {
+		return (int) (logDO.getReqEndTime().getTime() - logDO.getReqStartTime().getTime());
 	}
 
 }

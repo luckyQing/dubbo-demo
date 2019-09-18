@@ -1,4 +1,4 @@
-package com.liyulin.dubbo.demo.sdk.web.aspect.dto;
+package com.liyulin.dubbo.demo.sdk.web.aspect.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -22,7 +22,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class LogAspectDto implements Serializable {
+public class LogAspectDO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private static final String LOG_DATE_FORMAT = "yyyy-MM-dd HH:mm:ssS";
