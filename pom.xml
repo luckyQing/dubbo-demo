@@ -23,7 +23,7 @@
 		<dubbo>2.7.3</dubbo>
 		<fastjson>1.2.58</fastjson>
 		<reflections>0.9.11</reflections>
-		<httpclient>4.5.9</httpclient>
+		<httpclient>4.5.13</httpclient>
 		<powermock>2.0.2</powermock>
 	</properties>
 
