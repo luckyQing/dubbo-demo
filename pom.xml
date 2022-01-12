@@ -20,7 +20,7 @@
 		<!-- 2.1.5.RELEASE 升级后，IDE插件不兼容 -->
 		<springboot>2.1.5.RELEASE</springboot>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
-		<dubbo>2.7.3</dubbo>
+		<dubbo>2.7.15</dubbo>
 		<fastjson>1.2.58</fastjson>
 		<reflections>0.9.11</reflections>
 		<httpclient>4.5.9</httpclient>
