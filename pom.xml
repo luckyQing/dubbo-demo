@@ -18,7 +18,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<!-- 2.1.5.RELEASE 升级后，IDE插件不兼容 -->
-		<springboot>2.1.5.RELEASE</springboot>
+		<springboot>2.5.12</springboot>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 		<dubbo>2.7.3</dubbo>
 		<fastjson>1.2.58</fastjson>
